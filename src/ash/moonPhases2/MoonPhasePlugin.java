@@ -15,6 +15,7 @@ public class MoonPhasePlugin extends JavaPlugin{
 	    public void onEnable() {
 	        // Register command "moon"
 	        this.getCommand("moon").setExecutor(new MoonCommand());
+	        getServer().getPluginManager().registerEvents(new werewolf(), this);
 	        //Full moon event timer
 	        List <World> worlds = Bukkit.getWorlds();
 	        for(World world: worlds) {

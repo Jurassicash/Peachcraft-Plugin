@@ -1,0 +1,8 @@
+name: MoonPhasePlugin
+main: ash.moonPhases2.MoonPhasePlugin
+version: 1.1
+api-version: 1.13
+commands:
+   moon:
+      description: tells you the moon phase
+      usage: /moon

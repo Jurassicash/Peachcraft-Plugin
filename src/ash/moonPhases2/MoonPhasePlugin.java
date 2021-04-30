@@ -10,12 +10,16 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 
 public class MoonPhasePlugin extends JavaPlugin{
+	private werewolf werewolfManager;
+	private boolean FullMoon;
 	
 	 @Override
 	    public void onEnable() {
-	        // Register command "moon"
+		 	werewolfManager = new werewolf(this);
+	        // Register commands
 	        this.getCommand("moon").setExecutor(new MoonCommand());
-	        getServer().getPluginManager().registerEvents(new werewolf(), this);
+	        this.getCommand("ww").setExecutor(werewolfManager);
+	        getServer().getPluginManager().registerEvents(werewolfManager,this);
 	        //Full moon event timer
 	        List <World> worlds = Bukkit.getWorlds();
 	        for(World world: worlds) {
@@ -25,7 +29,15 @@ public class MoonPhasePlugin extends JavaPlugin{
 	        }
 	}
 	 
-		@Override
-	    public void onDisable() {
-	    }
+	@Override
+	public void onDisable() {
+	}
+	
+	public void SetFullMoon(boolean newValue) {
+		FullMoon = newValue;
+	}
+	public boolean IsMoonFull()	{
+		return FullMoon;
+	}
+		
 }

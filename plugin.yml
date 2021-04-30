@@ -6,3 +6,6 @@ commands:
    moon:
       description: tells you the moon phase
       usage: /moon
+   ww:
+      description: werewolf commands
+      usage: /ww
